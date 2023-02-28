@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const MONGO_URI = 'mongodb://localhost:27017/demoDB';
+const MONGO_URI = 'mongodb://127.0.0.1:27017/demoDB';
 mongoose.set("strictQuery", false);
 class MongoDB {
     constructor() {

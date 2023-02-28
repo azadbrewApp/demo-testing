@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 4000;
+const port = 4002;
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 require("./mongoConfig/mongoConfig")

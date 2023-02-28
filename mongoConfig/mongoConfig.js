@@ -5,7 +5,7 @@ class MongoDB {
     constructor() {
         if (!MongoDB.instance) {
             mongoose.connect(
-                MONGO_URI,
+                'mongodb://localhost:27017/demoDB',
                 (err) => {
                     if (err) {
                         console.log(`Connection Failed with MongoDB`);

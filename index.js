@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 const { exec } = require('child_process');
 const cron = require('node-cron');
+const user = require("./model/user");
 require("./mongoConfig/mongoConfig");
 app.use(express.json());
 

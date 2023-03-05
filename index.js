@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
 })
 
 const DB_NAME = 'demoDB';
-const BACKUP_DIR = '/root/';
+const BACKUP_DIR = '/home/ubuntu/demo-testing/backup';
 
-cron.schedule('0 1 * * *', () => {
+cron.schedule('* * * * * *', () => {
     // Build the backup command
     const cmd = `mongodump --db ${DB_NAME} --out ${BACKUP_DIR}`;
   

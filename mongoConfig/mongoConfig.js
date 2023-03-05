@@ -5,11 +5,9 @@ mongoose.set("strictQuery", false);
 class MongoDB {
     constructor() {
         if (!MongoDB.instance) {
-            const result =  mongoose.connect(
+            mongoose.connect(
                 MONGO_URI
             );
-
-            console.log('RESSULT ::::: ', result);
         }
     }
 }

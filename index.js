@@ -3,40 +3,13 @@ const app = express();
 const port = 4002;
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
-const { exec } = require('child_process');
-const cron = require('node-cron');
-const user = require("./model/user");
-require("./mongoConfig/mongoConfig");
-app.use(express.json());
-
-app.get('/', (req, res) => {
+const userRoute = require("./routes/userRoutes");
+app.post('/upload', (req, res) => {
     return res.status(200).json('Server is running Azad');
 })
 
-const DB_NAME = 'demoDB';
-const BACKUP_DIR = '/home/ubuntu/demo-testing/backup';
 
-cron.schedule('* * * * * *', () => {
-    // Build the backup command
-    const cmd = `mongodump --db ${DB_NAME} --out ${BACKUP_DIR}`;
-  
-    // Execute the backup command
-    exec(cmd, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Backup failed: ${error.message}`);
-        return;
-      }
-      if (stderr) {
-        console.error(`Backup error: ${stderr}`);
-        return;
-      }
-      console.log(`Backup success: ${stdout}`);
-    });
-  }, {
-    scheduled: true,
-    timezone: 'Asia/Kolkata'
-});
-
+app.use(userRoute);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })

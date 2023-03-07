@@ -5,7 +5,7 @@ const uploadDemoFile = (req, res) => {
     const file = req.file;
 
     console.log('FILE', file);
-    return res.status(200).json("URL" : `http://${req.host}/${file.filename}`)
+    return res.status(200).json({"URL" : `http://${req.host}/${file.filename}`})
 }
 
 const storage = multer.diskStorage({
